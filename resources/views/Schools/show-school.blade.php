@@ -22,6 +22,10 @@
                     <h3 class="text-center font-weight-bold">{{ $school->school_name }} Profile</h3>
                     <form>
                         <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label class="form-label">School UID</label>
+                                <input type="text" class="form-control" value="{{ $school->schoolUId }}" disabled>
+                            </div>
                             <div class="col-md-6">
                                 <label class="form-label">School Name</label>
                                 <input type="text" class="form-control" value="{{ $school->school_name }}" disabled>
