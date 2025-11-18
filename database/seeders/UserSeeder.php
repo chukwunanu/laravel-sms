@@ -15,35 +15,48 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $roles = [
-            ['name' => 'SuperAdmin', 'guard_name' => 'sms'],
-            ['name' => 'SchoolAdmin', 'guard_name' => 'sms'],
-        ];
-
-        foreach ($roles as $role) {
-            Role::firstOrCreate(['name' => $role['name'], 'guard_name' => $role['guard_name']]);
-        }
-
         $users = [
             [
                 'name' => 'Super Admin',
                 'email' => 'superadmin@sms.com',
-                'role' => 'SuperAdmin',
-                'password' => Hash::make('password'),
+                'role' => 'SuperAdmin'
             ],
-
             [
-                'name' => 'Admin',
-                'email' => 'SchoolAdmin@sms.com',
-                'role' => 'SchoolAdmin',
-                'password' => Hash::make('password'),
+                'name' => 'School Admin',
+                'email' => 'schooladmin@sms.com',
+                'role' => 'SchoolAdmin'
             ],
+            [
+                'name' => 'Teacher',
+                'email' => 'teacher@sms.com',
+                'role' => 'Teacher'
+            ],
+            [
+                'name' => 'Student',
+                'email' => 'student@sms.com',
+                'role' => 'Student'
+            ],
+            [
+                'name' => 'Parent',
+                'email' => 'parent@sms.com',
+                'role' => 'Parent'
+            ],
+            [
+                'name' => 'Bursar',
+                'email' => 'bursar@sms.com',
+                'role' => 'Bursar'
+            ]
         ];
 
-        foreach ($users as $userData) {
-          $user =  User::updateOrCreate(['email' => $userData['email']], $userData);
-            $user->assignRole($userData['role']);
-
+        foreach ($users as $user) {
+            Role::firstOrCreate(['name' => $user['role']]);
+            
+            User::create([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'email_verified_at' => now(),
+                'password' => Hash::make('password'),
+            ])->assignRole($user['role']);
         }
     }
 }
