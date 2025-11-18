@@ -22,7 +22,7 @@
                     <h3 class="text-center font-weight-bold">{{ $school->school_name }} Profile</h3>
                     <form>
                         <div class="row mb-3">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label class="form-label">School UID</label>
                                 <input type="text" class="form-control" value="{{ $school->schoolUId }}" disabled>
                             </div>
@@ -30,32 +30,37 @@
                                 <label class="form-label">School Name</label>
                                 <input type="text" class="form-control" value="{{ $school->school_name }}" disabled>
                             </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Email</label>
                                 <input type="email" class="form-control" value="{{ $school->email }}" disabled>
                             </div>
-                        </div>
-                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Phone</label>
                                 <input type="text" class="form-control" value="{{ $school->phone }}" disabled>
                             </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Address</label>
                                 <input type="text" class="form-control" value="{{ $school->address }}" disabled>
                             </div>
-                        </div>
-                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">City</label>
                                 <input type="text" class="form-control" value="{{ $school->city }}" disabled>
                             </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">State</label>
                                 <input type="text" class="form-control" value="{{ $school->state }}" disabled>
                             </div>
+                            <div class="col-md-6">
+                                <label class="form-label">P O Box</label>
+                                <input type="text" class="form-control" value="{{ $school->po_box }}" disabled>
+                            </div>
                         </div>
-                        <div class="row mb-3">
                         <div class="col-12">
                             <a href="{{ route('schools.index') }}" class="btn btn-secondary float-end">back</a>
                         </div>
