@@ -53,10 +53,10 @@
                                     <td class="d-flex gap-2">
                                         <a href="{{ route('schools.show', $school->id) }}" class="btn btn-sm btn-info">View</a>
                                         <a href="{{ route('schools.edit', $school->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                        <form action="{{ route('schools.destroy', $school->id) }}" method="POST" style="display:inline-block;">
+                                        <form action="{{ route('schools.destroy', $school->id) }}" method="POST" class="d-inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this profile?')">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
