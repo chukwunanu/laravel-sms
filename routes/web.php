@@ -5,14 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SchoolController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->middleware('role:SuperAdmin')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('role:SuperAdmin')->name('home');
 
 Route::middleware(['auth', 'role:SuperAdmin'])->prefix('admin')->group(function() {
     Route::get('/schools', [SchoolController::class, 'index'])->name('schools.index');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\School;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $schools = School::paginate(20);
+        return view('schools.index', compact('schools'));
     }
 }
